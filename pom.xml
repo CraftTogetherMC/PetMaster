@@ -1,34 +1,91 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+
 	<groupId>com.hm</groupId>
 	<artifactId>petmaster</artifactId>
 	<version>1.12.7</version>
-	<url>https://github.com/leothawne/PetMaster</url>
 	<name>PetMaster</name>
 	<description>Manage pets and display useful information via holograms, action bar or chat messages!</description>
+	<url>https://github.com/leothawne/PetMaster</url>
+
 	<issueManagement>
 		<system>GitHub Issues</system>
 		<url>https://github.com/leothawne/PetMaster/issues</url>
 	</issueManagement>
+
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<!-- Java für MC 1.21.x -->
+		<maven.compiler.release>21</maven.compiler.release>
+
+		<!-- Paper API -->
+		<paper.api.version>1.21.11-R0.1-SNAPSHOT</paper.api.version>
+
+		<!-- Adventure -->
+		<adventure.version>4.26.1</adventure.version>
+		<adventure.platform.bukkit.version>4.4.1</adventure.platform.bukkit.version>
+
+		<!-- Vault / Holograms -->
+		<vaultapi.version>1.7.1</vaultapi.version>
+		<decentholograms.version>2.9.7</decentholograms.version>
+
+		<!-- Dein Shared Modul -->
+		<mcshared.version>1.1.9</mcshared.version>
 	</properties>
+
+	<repositories>
+		<!-- Paper/Purpur Upstream -->
+		<repository>
+			<id>papermc</id>
+			<url>https://repo.papermc.io/repository/maven-public/</url>
+		</repository>
+
+		<!-- Jitpack (z.B. VaultAPI, DecentHolograms je nach Artifact) -->
+		<repository>
+			<id>jitpack</id>
+			<url>https://jitpack.io/</url>
+		</repository>
+
+		<!-- Dein MCShared Repo (beibehalten) -->
+		<repository>
+			<id>mcshared-repo</id>
+			<url>https://raw.github.com/Sidpatchy/MCShared/mvn-repo/</url>
+		</repository>
+
+		<!-- optional beibehalten, falls andere Transitives hier liegen -->
+		<repository>
+			<id>codemc-repo</id>
+			<url>https://repo.codemc.io/repository/maven-public/</url>
+		</repository>
+	</repositories>
+
 	<build>
-		<finalName>${project.name}-${project.version}-#${v}</finalName>
+		<finalName>${project.name}-${project.version}</finalName>
+
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.13.1-SNAPSHOT</version>
+				<version>3.14.1</version>
 				<configuration>
-					<source>8</source>
-					<target>8</target>
+					<release>${maven.compiler.release}</release>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.6.1-SNAPSHOT</version>
+				<version>3.6.1</version>
 				<configuration>
 					<relocations>
 						<relocation>
@@ -50,98 +107,56 @@
 				</executions>
 			</plugin>
 		</plugins>
-		<resources>
-			<resource>
-				<directory>src/main/resources</directory>
-				<filtering>true</filtering>
-			</resource>
-		</resources>
 	</build>
-	<repositories>
-		<repository>
-			<id>spigot-repo</id>
-			<url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
-		</repository>
-	    <repository>
-	    	<id>jitpack</id>
-	    	<url>https://jitpack.io/</url>
-	    </repository>
-		<repository>
-			<id>mcshared-repo</id>
-			<url>https://raw.github.com/Sidpatchy/MCShared/mvn-repo/</url>
-		</repository>
-		<repository>
-			<id>codemc-repo</id>
-			<url>https://repo.codemc.io/repository/maven-public/</url>
-		</repository>
-	</repositories>
+
 	<dependencies>
+		<!-- Paper API (Purpur kompatibel) -->
+		<dependency>
+			<groupId>io.papermc.paper</groupId>
+			<artifactId>paper-api</artifactId>
+			<version>${paper.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- Adventure (nur nötig, wenn du explizit selbst bundlen/verwenden willst) -->
 		<dependency>
 			<groupId>net.kyori</groupId>
 			<artifactId>adventure-api</artifactId>
-			<version>4.18.0</version>
-			<scope>compile</scope>
+			<version>${adventure.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.kyori</groupId>
 			<artifactId>adventure-text-minimessage</artifactId>
-			<version>4.18.0</version>
-			<scope>compile</scope>
+			<version>${adventure.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.kyori</groupId>
 			<artifactId>adventure-platform-bukkit</artifactId>
-			<version>4.3.4</version>
-			<scope>compile</scope>
+			<version>${adventure.platform.bukkit.version}</version>
 		</dependency>
+
+		<!-- Vault API (Runtime kommt vom Server/Plugin) -->
 		<dependency>
-			<groupId>org.spigotmc</groupId>
-			<artifactId>spigot-api</artifactId>
-			<version>1.14-R0.1-SNAPSHOT</version>
-			<type>jar</type>
-			<scope>provided</scope>
-			<exclusions>
-	            <exclusion>
-	                <groupId>*</groupId>
-	                <artifactId>*</artifactId>
-	            </exclusion>
-	        </exclusions>
-		</dependency>
-		<dependency>
-			<groupId>net.milkbowl.vault</groupId>
+			<groupId>com.github.MilkBowl</groupId>
 			<artifactId>VaultAPI</artifactId>
-			<version>1.7</version>
+			<version>${vaultapi.version}</version>
 			<scope>provided</scope>
-			<exclusions>
-	            <exclusion>
-	                <groupId>*</groupId>
-	                <artifactId>*</artifactId>
-	            </exclusion>
-	        </exclusions>
 		</dependency>
+
+		<!-- DecentHolograms API (Runtime kommt vom Server/Plugin) -->
 		<dependency>
-		    <groupId>com.github.decentsoftware-eu</groupId>
-		    <artifactId>decentholograms</artifactId>
-		    <version>2.8.12</version>
-		    <scope>provided</scope>
-		    <exclusions>
-	            <exclusion>
-	                <groupId>*</groupId>
-	                <artifactId>*</artifactId>
-	            </exclusion>
-	        </exclusions>
+			<groupId>com.github.decentsoftware-eu</groupId>
+			<artifactId>decentholograms</artifactId>
+			<version>${decentholograms.version}</version>
+			<scope>provided</scope>
 		</dependency>
+
+		<!-- MCShared (wird weiterhin geshadet) -->
 		<dependency>
 			<groupId>com.hm.mcshared</groupId>
 			<artifactId>MCShared</artifactId>
-			<version>1.1.9</version>
-			<scope>compile</scope>
-			<exclusions>
-	            <exclusion>
-	                <groupId>*</groupId>
-	                <artifactId>*</artifactId>
-	            </exclusion>
-	        </exclusions>
+			<version>${mcshared.version}</version>
 		</dependency>
 	</dependencies>
+
 </project>
