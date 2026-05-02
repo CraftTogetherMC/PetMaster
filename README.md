@@ -1,29 +1,29 @@
 <p align="center">
-<img src ="https://github.com/leothawne/PetMaster/blob/master/images/banner.png?raw=true" />
+<img src ="https://github.com/Nobookie/PetMaster/blob/master/images/banner.png?raw=true" />
 <br/>
 </p>
 
 # Pet Master
-<a href="https://github.com/leothawne/PetMaster/blob/master/LICENSE">
-<img src ="https://img.shields.io/github/license/leothawne/PetMaster.svg" />
+<a href="https://github.com/Nobookie/PetMaster/blob/master/LICENSE">
+<img src ="https://img.shields.io/github/license/Nobookie/PetMaster.svg" />
 </a>
-  <a href="https://github.com/leothawne/PetMaster/releases">
-<img src ="https://img.shields.io/github/release/leothawne/PetMaster.svg" />
+  <a href="https://github.com/Nobookie/PetMaster/releases">
+<img src ="https://img.shields.io/github/release/Nobookie/PetMaster.svg" />
 </a>
-<a href="https://github.com/leothawne/PetMaster/issues">
-<img src ="https://img.shields.io/github/issues/leothawne/PetMaster.svg" />
+<a href="https://github.com/Nobookie/PetMaster/issues">
+<img src ="https://img.shields.io/github/issues/Nobookie/PetMaster.svg" />
 </a>
-<a href="https://github.com/leothawne/PetMaster/stargazers">
-<img src ="https://img.shields.io/github/stars/leothawne/PetMaster.svg" />
+<a href="https://github.com/Nobookie/PetMaster/stargazers">
+<img src ="https://img.shields.io/github/stars/Nobookie/PetMaster.svg" />
 </a>
-<a href="https://github.com/leothawne/PetMaster/network">
-<img src ="https://img.shields.io/github/forks/leothawne/PetMaster.svg" />
+<a href="https://github.com/Nobookie/PetMaster/network">
+<img src ="https://img.shields.io/github/forks/Nobookie/PetMaster.svg" />
 </a>
-<a href="https://github.com/leothawne/PetMaster/contributors">
-<img src ="https://img.shields.io/github/contributors/leothawne/PetMaster.svg" />
+<a href="https://github.com/Nobookie/PetMaster/contributors">
+<img src ="https://img.shields.io/github/contributors/Nobookie/PetMaster.svg" />
 </a>
-<a href='https://jenkins.gmj.net.br/job/PetMaster/'>
-<img src='https://jenkins.gmj.net.br/job/PetMaster/badge/icon'>
+<a href="https://jenkins.nobookie.net.br/job/PetMaster/">
+<img alt="Badge" src="https://jenkins.nobookie.net.br/job/PetMaster/badge/icon" />
 </a>
 
 **Manage pets and display useful information via holograms, action bar or chat messages!**
@@ -39,7 +39,7 @@
 
 Ensure you have the JDK and Maven installed, and simply run the following commands in a terminal:
 ````
-git clone https://github.com/leothawne/PetMaster.git
+git clone https://github.com/Nobookie/PetMaster.git
 cd PetMaster
 mvn clean install
 ````
@@ -51,19 +51,19 @@ Your generated `PetMaster-VERSION.jar` can be found in the `target` folder.
 
 * [Bukkit](http://dev.bukkit.org/bukkit-plugins/pet-master/), another homepage (from original plugin's owner).
 
-* [Documentation, installation and FAQ](https://github.com/leothawne/PetMaster/wiki), a lot of valuable information on how to set the plugin up or use it properly.
+* [Documentation, installation and FAQ](https://github.com/Nobookie/PetMaster/wiki), a lot of valuable information on how to set the plugin up or use it properly.
 
-* [Plugin translations](https://github.com/leothawne/PetMaster/tree/master/src/main/resources), 10 languages available, feel free to improve the translations!
+* [Plugin translations](https://github.com/Nobookie/PetMaster/tree/master/src/main/resources), 10 languages available, feel free to improve the translations!
 
 # Contributing
 
 #### `$ code`
 
-Want to make Pet Master better, faster, stronger? Contributions are more than welcome, open a **pull request** and share your code! Simply **fork** the repository by clicking on the icon on the top right of this page and refer to the [Wiki](https://github.com/leothawne/PetMaster/wiki/Developers) to get your copy up and running and interact with the plugin.
+Want to make Pet Master better, faster, stronger? Contributions are more than welcome, open a **pull request** and share your code! Simply **fork** the repository by clicking on the icon on the top right of this page and refer to the [Wiki](https://github.com/Nobookie/PetMaster/wiki/Developers) to get your copy up and running and interact with the plugin.
 
 #### :speech_balloon: Support
 
-Thought of a cool idea? Found a problem or need some help? Simply open an [**issue**](https://github.com/leothawne/PetMaster/issues)!
+Thought of a cool idea? Found a problem or need some help? Simply open an [**issue**](https://github.com/Nobookie/PetMaster/issues)!
 
 #### :star: Thanks
 
