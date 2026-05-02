@@ -284,7 +284,7 @@ public class PlayerInteractListener implements Listener {
 					Placeholder.component("current-health", Component.text(String.format("%.1f", animal.getHealth()))),
 					Placeholder.component("max-health", Component.text(
 							plugin.getServerVersion() < 9 ? String.format("%.1f", animal.getMaxHealth())
-							: String.format("%.1f", animal.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue())))
+							: String.format("%.1f", animal.getAttribute(Attribute.MAX_HEALTH).getValue())))
 			);
 		}
 
