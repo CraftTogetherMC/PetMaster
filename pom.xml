@@ -18,19 +18,19 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<!-- Java für MC 1.21.x -->
-		<maven.compiler.release>21</maven.compiler.release>
+		<!-- Java für MC 26.2 -->
+		<maven.compiler.release>25</maven.compiler.release>
 
 		<!-- Paper API -->
-		<paper.api.version>1.21.11-R0.1-SNAPSHOT</paper.api.version>
+		<paper.api.version>26.2.build.111-stable</paper.api.version>
 
 		<!-- Adventure -->
-		<adventure.version>4.26.1</adventure.version>
+		<adventure.version>5.2.0</adventure.version>
 		<adventure.platform.bukkit.version>4.4.1</adventure.platform.bukkit.version>
 
 		<!-- Vault / Holograms -->
 		<vaultapi.version>1.7.1</vaultapi.version>
-		<decentholograms.version>2.9.7</decentholograms.version>
+		<decentholograms.version>2.10.1</decentholograms.version>
 
 		<!-- Dein Shared Modul -->
 		<mcshared.version>1.1.9</mcshared.version>
@@ -85,7 +85,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
-				<version>3.6.1</version>
+				<version>3.6.2</version>
 				<configuration>
 					<relocations>
 						<relocation>
