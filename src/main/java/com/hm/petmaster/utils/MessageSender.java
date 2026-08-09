@@ -42,13 +42,11 @@ public class MessageSender {
     }
 
     public void sendComponent(Player player, Component component){
-        Audience audience = plugin.adventure().player(player);
-        audience.sendMessage(component);
+        player.sendMessage(component);
     }
 
     public void sendComponentToActionBar(Player player, Component component){
-        Audience audience = plugin.adventure().player(player);
-        audience.sendActionBar(component);
+        player.sendActionBar(component);
     }
 
     public void sendMessage(Audience audience, String key, TagResolver... tagResolvers) {
@@ -56,13 +54,11 @@ public class MessageSender {
     }
 
     public void sendMessage(Player player, String key, TagResolver... tagResolvers) {
-        Audience audience = plugin.adventure().player(player);
-        sendMessage(audience, key, tagResolvers);
+        sendMessage((Audience) player, key, tagResolvers);
     }
 
     public void sendMessage(CommandSender sender, String key, TagResolver... tagResolvers) {
-        Audience audience = plugin.adventure().sender(sender);
-        sendMessage(audience, key, tagResolvers);
+        sendMessage((Audience) sender, key, tagResolvers);
     }
 
     public void sendActionBar(Audience audience, String key, TagResolver... tagResolvers) {
@@ -70,17 +66,14 @@ public class MessageSender {
     }
 
     public void sendActionBar(Player player, String key, TagResolver... tagResolvers) {
-        Audience audience = plugin.adventure().player(player);
-        sendActionBar(audience, key, tagResolvers);
+        sendActionBar((Audience) player, key, tagResolvers);
     }
 
     public void sendNewLine(CommandSender sender, boolean sendPrefix){
-        Audience audience = plugin.adventure().sender(sender);
-
         if (sendPrefix){
-            sendMessage(audience, "petmaster-prefix");
+            sendMessage(sender, "petmaster-prefix");
         } else {
-            audience.sendMessage(Component.newline());
+            sender.sendMessage(Component.newline());
         }
     }
 }

@@ -6,7 +6,6 @@ import com.hm.petmaster.command.*;
 import com.hm.petmaster.files.PetAbilityFile;
 import com.hm.petmaster.listener.*;
 import com.hm.petmaster.utils.MessageSender;
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -17,7 +16,6 @@ import org.bukkit.event.HandlerList;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.jetbrains.annotations.NotNull;
 
 import java.io.File;
 import java.io.IOException;
@@ -74,15 +72,7 @@ public class PetMaster extends JavaPlugin {
 	private PetSkillCommand petSkillCommand;
 
 	//Messageing System
-	private BukkitAudiences adventure;
 	private MessageSender messageSender;
-
-	public @NotNull BukkitAudiences adventure() {
-		if(this.adventure == null) {
-			throw new IllegalStateException("Tried to access Adventure when the plugin was disabled!");
-		}
-		return this.adventure;
-	}
 
 	/**
 	 * Called when server is launched or reloaded.
@@ -93,7 +83,6 @@ public class PetMaster extends JavaPlugin {
 		long startTime = System.currentTimeMillis();
 
 		// Initializing the Messaging System
-		this.adventure = BukkitAudiences.create(this);
 		this.messageSender = new MessageSender(this);
 
 		getLogger().info("Registering listeners...");
@@ -291,11 +280,6 @@ public class PetMaster extends JavaPlugin {
 	 */
 	@Override
 	public void onDisable() {
-		// Closing Adventure API
-		if(this.adventure != null) {
-			this.adventure.close();
-			this.adventure = null;
-		}
 		getLogger().info("PetMaster has been disabled.");
 	}
 
